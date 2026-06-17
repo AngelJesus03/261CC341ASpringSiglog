@@ -1,0 +1,64 @@
+### =====================================================
+###  Pruebas HU01 - Login y Registro
+###  Ejecuta cada bloque haciendo clic en la flecha verde
+### =====================================================
+
+### 1. Iniciar sesion con el usuario admin (creado automaticamente al arrancar)
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@xyz.com",
+  "password": "Admin1234!"
+}
+
+### -----------------------------------------------------
+### Copia el "token" de la respuesta y pegalo abajo
+### donde dice TU_TOKEN_AQUI
+### -----------------------------------------------------
+
+### 2. Ver mi perfil (requiere token)
+GET http://localhost:8080/api/auth/perfil
+Authorization: Bearer TU_TOKEN_AQUI
+
+### 3. Registrar un Jefe de Logistica (solo ADMIN puede)
+POST http://localhost:8080/api/auth/registro
+Content-Type: application/json
+Authorization: Bearer TU_TOKEN_AQUI
+
+{
+  "nombre": "Carlos Mendez",
+  "email": "jefe@xyz.com",
+  "password": "Jefe1234!",
+  "rol": "JEFE_LOGISTICA"
+}
+
+### 4. Registrar un Tesorero
+POST http://localhost:8080/api/auth/registro
+Content-Type: application/json
+Authorization: Bearer TU_TOKEN_AQUI
+
+{
+  "nombre": "Ana Lopez",
+  "email": "tesorero@xyz.com",
+  "password": "Teso1234!",
+  "rol": "TESORERO"
+}
+
+### 5. Probar login con el Jefe recien creado
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "jefe@xyz.com",
+  "password": "Jefe1234!"
+}
+
+### 6. Probar credenciales invalidas (debe fallar con 401)
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@xyz.com",
+  "password": "contrasena_incorrecta"
+}

@@ -1,0 +1,69 @@
+.navbar-logi {
+  background-color: var(--logi-orange);
+  color: #ffffff;
+  height: 90px;
+  width: 100%;
+}
+
+.logo-wrap {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+.logo-icon {
+  font-size: 2.2rem;
+  line-height: 1;
+}
+
+.logo-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.85rem;
+  font-style: italic;
+  margin-top: 0.1rem;
+  letter-spacing: 0.5px;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 1.8rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link-logi {
+  color: #ffffff;
+  text-decoration: none;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-weight: 500;
+  transition: opacity 0.15s ease;
+}
+
+.nav-link-logi:hover {
+  opacity: 0.8;
+  color: #ffffff;
+}
+
+.ingresar-link {
+  color: #ffffff;
+  text-decoration: none;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.95rem;
+}
+
+.ingresar-link:hover {
+  opacity: 0.85;
+  color: #ffffff;
+}
+
+.ingresar-icon {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.breadcrumb-text {
+  color: #ffffff;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+}

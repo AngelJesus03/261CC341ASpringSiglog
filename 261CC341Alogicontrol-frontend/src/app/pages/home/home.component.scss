@@ -1,0 +1,60 @@
+.home-wrap {
+  padding: 3rem 1.5rem;
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+.bienvenida {
+  text-align: center;
+  color: var(--logi-text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.rol-selector {
+  position: relative;
+}
+
+.rol-toggle {
+  width: 100%;
+  background: var(--logi-cream);
+  border: none;
+  border-radius: var(--logi-radius);
+  padding: 0.95rem 1.4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.25rem;
+  color: var(--logi-text);
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+
+  &:hover {
+    background: #ecdcc8;
+  }
+}
+
+.rol-lista {
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 0;
+}
+
+.rol-item {
+  background: #f0f0f0;
+  padding: 0.85rem 1rem;
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  border-bottom: 1px solid #e0e0e0;
+  cursor: pointer;
+  transition: background-color 0.15s ease;
+
+  &:first-child { border-top-left-radius: var(--logi-radius); border-top-right-radius: var(--logi-radius); }
+  &:last-child  { border-bottom-left-radius: var(--logi-radius); border-bottom-right-radius: var(--logi-radius); }
+
+  &:hover {
+    background: var(--logi-orange-light);
+    color: #ffffff;
+  }
+}

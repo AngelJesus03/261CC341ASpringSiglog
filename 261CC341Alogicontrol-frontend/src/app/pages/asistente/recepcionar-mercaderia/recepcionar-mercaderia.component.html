@@ -1,0 +1,77 @@
+<app-navbar [breadcrumb]="'HomePage / Asistente Logísitico'"></app-navbar>
+
+<div class="page-wrap">
+  <div class="banner-titulo">
+    <h1>Recepcionar Mercadería</h1>
+  </div>
+
+  <div class="banner-subtitulo">Datos del producto</div>
+
+  <!-- Selector de mercadería (Imagen 4) -->
+  <div class="row align-items-center mb-4">
+    <label class="col-sm-4 col-form-label">Código de mercadería</label>
+    <div class="col-sm-6 position-relative">
+      <button class="dropdown-mercaderia" (click)="toggleDropdown()" type="button">
+        <span>{{ seleccionada()?.codigo || '' }}</span>
+        <i class="bi bi-caret-down-fill"></i>
+      </button>
+
+      @if (dropdownAbierto()) {
+        <ul class="dropdown-lista">
+          @for (m of mercaderias; track m.codigo) {
+            <li class="dropdown-item-logi" (click)="seleccionar(m)">
+              {{ m.codigo }}
+            </li>
+          }
+        </ul>
+      }
+    </div>
+  </div>
+
+  <!-- Cuando se selecciona una, mostrar el bloque de confirmación (Imagen 5) -->
+  @if (seleccionada(); as m) {
+    <div class="confirmacion-box mt-4">
+      <div class="banner-subtitulo">
+        Mercadería {{ m.codigo }}
+      </div>
+
+      <div class="confirmacion-banner">
+        Confirmación de orden de compra por la empresa {{ m.empresaOrigen }},
+      </div>
+
+      <div class="form-check mb-3 d-flex align-items-center gap-2">
+        <input
+          type="checkbox"
+          class="form-check-input"
+          id="conforme"
+          [formControl]="form.controls.conforme"
+        />
+        <label class="form-check-label" for="conforme">
+          La entrega y el conteo fue de acuerdo a lo establecido
+        </label>
+      </div>
+
+      <div class="mb-4">
+        <label class="form-label">Comentario (opcional):</label>
+        <textarea
+          class="form-control-logi comentario-area"
+          rows="2"
+          [formControl]="form.controls.comentario"
+        ></textarea>
+      </div>
+
+      @if (resultadoMsg(); as msg) {
+        <div class="alert-logi-ok mb-3">{{ msg }}</div>
+      }
+
+      <div class="d-flex justify-content-around mt-4">
+        <button type="button" class="btn-logi" (click)="devolucion()">
+          Devolución de compra
+        </button>
+        <button type="button" class="btn-logi" (click)="validarCompra()">
+          Validar compra
+        </button>
+      </div>
+    </div>
+  }
+</div>

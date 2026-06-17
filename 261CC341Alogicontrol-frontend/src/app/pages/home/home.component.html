@@ -1,0 +1,24 @@
+<app-navbar [breadcrumb]="'HomePage'"></app-navbar>
+
+<div class="home-wrap">
+  @if (auth.usuario(); as u) {
+    <p class="bienvenida">Bienvenido, <strong>{{ u.nombre }}</strong></p>
+  }
+
+  <div class="rol-selector">
+    <button class="rol-toggle" (click)="toggleDropdown()">
+      <span>Seleccione su rol</span>
+      <i class="bi" [class.bi-caret-down-fill]="!desplegado" [class.bi-caret-up-fill]="desplegado"></i>
+    </button>
+
+    @if (desplegado) {
+      <ul class="rol-lista">
+        @for (op of opciones; track op.label) {
+          <li class="rol-item" (click)="seleccionarRol(op)">
+            {{ op.label }}
+          </li>
+        }
+      </ul>
+    }
+  </div>
+</div>
